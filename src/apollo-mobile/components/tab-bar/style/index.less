@@ -1,0 +1,80 @@
+@import "./../../styles/constants/constants";
+@import "./../../styles/mixin/mixin";
+
+
+
+.apollo-tab-bar {
+  overflow: hidden;
+
+  &-bar {
+    //position: relative;
+    display: flex;
+    text-align: center;
+    box-sizing: border-box;
+    .setOnePxBySide(top);
+    padding: 4px 0;
+    background-color: @tab-bar-bg-color;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    .apollo-tab-bar-tab {
+      color: @tab-bar-font-color;
+      font-size: @tab-bar-font-size;
+      flex:1;
+
+    }
+  }
+
+  &-no-badge {
+    .apollo-badge-area {
+      display: none;
+    }
+  }
+
+  &-item {
+    .apollo-badge {
+      padding: 1px;
+      z-index: 50;
+    }
+    .apollo-icon {
+      color: @tab-bar-font-color;
+    }
+    p {
+      line-height: 1;
+    }
+  }
+
+
+  &-tab-active {
+    &.apollo-tab-bar-tab {
+      color: @tab-bar-active-font-color;
+    }
+    .apollo-icon {
+      color: @tab-bar-active-font-color;
+    }
+  }
+
+  &-tab-disabled {
+    &.apollo-tab-bar-tab {
+      color:lighten(@tab-bar-font-color,35%)
+    }
+    .apollo-icon {
+      color: lighten(@tab-bar-font-color,35%);
+    }
+  }
+
+
+
+  &-content {
+    position: relative;
+    //height: 100%;
+    overflow: auto;
+    .apollo-tab-bar-tabpane {
+      background-color: @tab-bar-pane-bg-color;
+      height: 100%;
+      &-hidden {
+        display: none;
+      }
+    }
+  }
+}

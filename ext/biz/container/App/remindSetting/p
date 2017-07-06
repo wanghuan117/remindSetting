@@ -1,0 +1,103 @@
+//.am-list-item {
+//  color: #000000;
+//  padding-left: 0;
+//  min-height: 35px;
+//  background-color: #fff;
+//  -webkit-tap-highlight-color:rgba(255,255,255,1);
+//}
+//.am-list-item .am-list-line {
+//  -webkit-tap-highlight-color:rgba(255,255,255,1);
+//  min-height: 35px;
+//  color: #000000;
+//  position: relative;
+//}
+//.am-list-item .am-list-line .am-list-content {
+//  color: #000000;
+//  font-size: 1rem;
+//  height: 61px;
+//  //overflow: hidden;
+//  //text-overflow: ellipsis;
+//  //white-space: nowrap;
+//  width: 375px;
+//  padding-top: 20px;
+//}
+//.am-list-item .am-list-line .am-list-extra {
+//  color: #000;
+//  font-size: 1rem;
+//  line-height: 3rem;
+//  width: 58%;
+//  border: 1px solid #929292;
+//  position: absolute;
+//  left: 10.2rem;
+//  top: 1.2rem;
+//  padding-left: 1rem;
+//  height: 3rem;
+//  text-align: left;
+//  padding-top: 0px;
+//  overflow: hidden;
+//  text-overflow: ellipsis;
+//  white-space: nowrap;
+//  -webkit-tap-highlight-color: rgba(255, 255, 255, 1)
+//}
+//
+//
+//.am-list-item .am-list-line .am-list-arrow-horizontal {
+//  visibility: visible;
+//  width: 3%;
+//  position: absolute;
+//  right: 7.5rem;
+//  top: 1.5rem;
+//  -moz-transform:rotate(90deg);
+//
+//  -webkit-transform:rotate(90deg);
+//
+//  -o-transform:rotate(90deg);
+//
+//  -ms-transform:rotate(90deg);
+//
+//  transform:rotate(90deg);
+//}
+//
+//.am-picker-popup-body{
+//  .am-picker-popup-header {
+//    height: 50px;
+//    background: #C9C9C9;
+//    .am-picker-popup-header-cancel-button{
+//      color: #000;
+//    }
+//    .am-picker-popup-header-cancel-button,.am-picker-popup-header-ok-button {
+//      font-size: 15px;
+//    }
+//  }
+//
+//  .am-picker {
+//    height: 195px;
+//    .am-picker-col {
+//      display: block;
+//      position: relative;
+//      height: 195px;
+//      overflow: hidden;
+//      width: 100%;
+//      .am-picker-col-indicator {
+//        top: 85px;
+//        height: 36px;
+//      }
+//      .am-picker-col-content {
+//        margin-top: -37px;
+//        transform: translate3d(0px, -180px, 0px) scale(1);
+//        .am-picker-col-item {
+//          font-size: 14px;
+//          height: 15px;
+//          line-height: 15px;
+//          margin-top: 23px;
+//        }
+//
+//      }
+//      .am-picker-col-mask {
+//        background-size: 100% 78px;
+//      }
+//    }
+//  }
+//}
+//
+//

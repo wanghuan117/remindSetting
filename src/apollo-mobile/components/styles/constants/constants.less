@@ -1,0 +1,302 @@
+//font
+@globalFont:-apple-system,"SF UI Text",Roboto,Noto,"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@globalFontSize:14px;
+
+// 背景色
+@fill-base: #fff;                           // 组件默认背景
+@fill-body: #f5f5f9;                        // 页面背景
+@fill-tap: #ddd;                            // 组件默认背景 - 按下
+@fill-disabled: #ddd;                       // 通用失效背景
+@fill-mask: rgba(0, 0, 0, .5);              // 遮罩背景
+@fill-overlay-inverse: rgba(0, 0, 0, .8);   // 浮层背景 - 反色，用于 toast
+
+// 品牌色
+@primary-color: #108ee9;
+@warn-color: #f76260;
+@default-color: #f9f9f9;
+
+
+// 文字色
+@color-text-base: #000;                  // 基本
+@color-text-base-inverse: #fff;          // 基本 - 反色
+@color-text-placeholder: #ccc;           // 文本框提示
+@color-text-disabled: #bbb;              // 失效
+@color-text-caption: #888;               // 辅助描述
+@color-text-paragraph: #333;             // 段落
+@color-link: @primary-color;             // 链接
+
+@border-color-base: #ddd;
+
+
+// 字体尺寸
+// ---
+@font-size-icontext: 12px;
+@font-size-caption-sm: 12px;
+@font-size-base: 14px;
+@font-size-subhead: 16px;
+@font-size-caption: 16px;
+@font-size-heading: 20px;
+
+// 图标尺寸
+// ---
+@icon-size-xxs: 10px;
+@icon-size-xs: 12px;
+@icon-size-sm: 14px;
+@icon-size-md: 16px;
+@icon-size-lg: 20px;
+
+
+// 圆角
+// ---
+@radius-xs: 4px;
+@radius-sm: 6px;
+@radius-md: 10px;
+@radius-lg: 14px;
+
+// 边框尺寸
+// ---
+@border-width-sm: 1PX;
+@border-width-md: 2px;
+@border-width-lg: 4px;
+
+// 间距
+// ---
+// 水平间距
+@h-spacing-sm: 12px;
+@h-spacing-md: 18px;
+@h-spacing-lg: 30px;
+
+// 垂直间距
+@v-spacing-xs: 6px;
+@v-spacing-sm: 12px;
+@v-spacing-md: 18px;
+@v-spacing-lg: 30px;
+@v-spacing-xl: 42px;
+
+
+//font-color
+@primary-font-color: #666;
+
+
+
+//button
+@btnGap:15px;
+@btnHeight:42px;
+@btnHorizonPadding:14px;
+@btnFontSize: 18px;
+@btnFontColor: #ffffff;
+@btnBorderRadius:5px;
+@btnPrimaryBgColor: @primary-color;
+@BtnPrimaryFontColor: #ffffff;
+@btnDefaultBgColor: @default-color;
+@btnDefaultFontColor: #666666;
+@btnWarnBgColor: @warn-color;
+@BtnWarnFontColor: #ffffff;
+@btnPlanDefaultColor: #666666;
+
+@btnSmallLineHeight: 1.9;
+@btnSmallFontSize: 14px;
+
+@font-url: './../../../../../ext/icon/iconfont';
+
+@icon-prefix: apollo-icon;
+@icon-default-color: @primary-color;
+
+
+//toast
+@toast-mask-z-index:1200;
+
+@toast-mask-margin-top: -60px;
+@toast-padding: 12px 24px;
+@toast-border-radius: 6px;
+@toast-color: #fff;
+@toast-bg-color: #222222;
+@toast-font-size: 14px;
+@toast-line-height: 20px;
+@toast-icon-size:32px;
+@toast-icon-margin-bottom: 4px;
+
+
+//modal
+@modal-mask-z-index:1100;
+
+@modal-mask-bg-color: rgba(0,0,0,.8);
+@modal-bg-color: #ffffff;
+@modal-font-size: 16px;
+@modal-font-color: #666;
+@modal-alert-width: 280px;
+@modal-alert-radius:4px;
+@modal-alert-padding: 24px;
+@modal-alert-font-size: 14px;
+
+
+//navigator
+@navigator-height: 40px;
+@navigator-padding: 3px 8px;
+@navigator-light-bg-color: #ffffff;
+@navigator-dark-bg-color:#222222;
+@navigator-default-bg-color:@primary-color;
+@navigator-default-color:#ffffff;
+@navigator-light-color:@primary-color;
+@navigator-dark-color:#ffffff;
+@navigator-font-size:18px;
+@navigator-side-font-size:16px;
+@navigator-icon-text-margin:5px;
+
+
+//cell
+@cell-wings: @h-spacing-md;
+@cell-group-padding:8px 0;
+@cell-group-header-padding: 8px @cell-wings 4px;
+@cell-group-header-font-size: 14px;
+@cell-group-header-font-color: #888;
+@cell-padding: @v-spacing-xs @cell-wings;
+@cell-min-height:44px;
+@cell-background-color: #ffffff;
+@cell-title-font-size:16px;
+@cell-title-font-color:#222;
+@cell-title-sub-font-size:14px;
+@cell-title-sub-font-color:#999;
+@cell-description-font-size:14px;
+@cell-description-font-color:#666;
+@cell-description-sub-font-size:12px;
+@cell-description-sub-font-color:#999;
+@cell-arrow-size: @icon-size-md;
+@cell-arrow-margin-left:4px;
+@cell-arrow-color:#999;
+
+//carousel
+@carousel-min-height:80px;
+@carousel-dots-bottom: 0;
+@carousel-dots-size:10px;
+@carousel-dots-margin: 0 5px;
+@carousel-dots-color: #666;
+@carousel-dots-opacity:0.25;
+@carousel-dots--active-opacity:0.75;
+
+//ink-tabs
+@ink-tab-ink-bar-color:@primary-color;
+@ink-tab-ink-bar-height: 3px;
+@ink-tab-ink-bg-color:#fff;
+@ink-tab-height: 44px;
+@ink-tab-font-size: 16px;
+@ink-tab-font-color:#666;
+@ink-tab-pane-bg-color: transparent;
+
+//segment-tabs
+@segment-tab-active-color:@primary-color;
+@segment-tab-ink-bar-height: 100%;
+@segment-tab-height: 36px;
+@segment-tab-font-size: 16px;
+@segment-tab-font-color:@primary-color;
+@segment-tab-pane-bg-color: #fff;
+@segment-tab-radius:6px;
+@segment-tab-content-margin-top: 8px;
+
+//tab-bar
+@tab-bar-font-size:14px;
+@tab-bar-font-color:#999;
+@tab-bar-active-font-color:@primary-color;
+@tab-bar-pane-bg-color: transparent;
+@tab-bar-bg-color: @default-color;
+//badge
+@badge-bg-color: #f76260;
+@badge-dot-size: 8px;
+@badge-text-size: 24px;
+@badge-text-small-size: 16px;
+@badge-text-small-font-size: 12px;
+@badge-text-color: #fff;
+
+
+//card
+@card-padding-left: 16px;
+@card-padding-vertical: 8px;
+@card-border-radius: 4px;
+@card-footer-font-size: 12px;
+@card-footer-font-color: #999;
+@card-font-size: #222;
+@card-body-min-height: 64px;
+@card-header-description-font-color: #666;
+@card-header-thumb-size: 25px;
+
+//accordion
+@accordion-header-height:32px;
+@accordion-header-padding: 6px 36px 6px 16px;
+@accordion-header-font-color: #222;
+@accordion-header-bg-color:@default-color;
+@accordion-font-size: 16px;
+@accordion-header-arrow-size:16px;
+@accordion-header-arrow-color:#999;
+@accordion-content-bg-color: transparent;
+@accordion-content-font-color: #666;
+
+
+// input
+@input-label-width: 18px;
+@input-font-size: 16px;
+@input-color-icon: #ccc;
+@input-color-icon-tap: @primary-color;
+@input-color-icon-inverse: rgba(255, 255, 255, .6);
+@input-color-icon-tap-inverse: rgba(255, 255, 255, .4);
+//n-grids
+@n-grids-background: #fff;
+@n-grids-item-height: 24px;
+@n-grids-item-width: 24px;
+@n-grids-item-text-color: #666;
+@n-grids-item-text-size: 14px;
+@n-grids-item-text-icon-dis: 6px;
+
+//switch
+@switch-height: 32px;
+@switch-width: 52px;
+@switch-radius: 16px;
+@switch-circle-color:#fff;
+@switch-border-color: #dfdfdf;
+@switch-unchecked-bg-color:#fff;
+@switch-checked-bg-color:@primary-color;
+
+
+//checkbox
+@checkbox-height:22px;
+@checkbox-width:22px;
+@checkbox-radius:22px;
+@checkbox-margin:1px;
+@checkbox-unchecked-bg-color:#fff;
+@checkbox-checked-bg-color:@primary-color;
+@checkbox-disabled-bg:#e9e9e9;
+@checkbox-disabled-font-color:#999;
+
+@apollo-checkbox-agree-label-left:28px;
+@apollo-checkbox-agree-label-font-size: 14px;
+
+
+//radio
+@radio-height:22px;
+@radio-width:22px;
+@radio-radius:22px;
+@radio-margin:1px;
+@radio-unchecked-bg-color:#fff;
+@radio-checked-bg-color:@primary-color;
+@radio-disabled-bg:#e9e9e9;
+@radio-disabled-font-color:#999;
+
+
+//counting-up
+@counting-up-color: @primary-color;
+
+
+//global z-index
+@datePickerZIndex: 1101;  // picker 会放到 popup / modal 中
+@pickerZIndex: 1101;
+@modal-mask-z-index:1100;
+@toast-mask-z-index:1200;
+
+
+//picker
+@picker-col-item-selected-font-size: 18px;
+
+
+
+
+
+

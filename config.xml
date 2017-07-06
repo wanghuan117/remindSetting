@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.threenuts.Atomic" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Atomic</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Atomic
+    </author>
+    <content src="index.html" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="EnableViewportScale" value="true" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="CrosswalkAnimatable" value="false" />
+    <preference name="xwalkVersion" value="15+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AppendUserAgent" value="CDV/v5.0" />
+    <access origin="cdvfile://*" />
+    <access origin="file://*" />
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <platform name="android">
+        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+        <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
+        <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
+        <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png" />
+        <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png" />
+        <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png" />
+    </platform>
+    <platform name="ios">
+        <icon height="57" src="resources/ios/icon/icon.png" width="57" />
+        <icon height="40" src="resources/ios/icon/icon-40.png" width="40" />
+        <icon height="50" src="resources/ios/icon/icon-50.png" width="50" />
+        <icon height="60" src="resources/ios/icon/icon-60.png" width="60" />
+        <icon height="72" src="resources/ios/icon/icon-72.png" width="72" />
+        <icon height="29" src="resources/ios/icon/icon-small.png" width="29" />
+        <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58" />
+        <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    </platform>
+    <icon src="resources/android/icon/drawable-hdpi-icon.png" />
+    <preference name="xwalkMultipleApk" value="true" />
+</widget>

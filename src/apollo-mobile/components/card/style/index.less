@@ -1,0 +1,62 @@
+@import "./../../styles/constants/constants";
+@import "./../../styles/mixin/mixin";
+
+
+.apollo-card {
+  .setOnePxAll(@radius: @card-border-radius);
+  padding-left: @card-padding-left;
+  color: @card-font-size;
+  &-header {
+    .setOnePxBySide(bottom);
+    padding: @card-padding-vertical @card-padding-left @card-padding-vertical 0;
+    display: flex;
+    align-items: center;
+
+    &-thumb {
+      vertical-align: middle;
+      margin-right: 8px;
+      height: @card-header-thumb-size;
+      width: @card-header-thumb-size;
+    }
+
+    &-content {
+      flex: 1;
+      text-align: left;
+      .ellipsis();
+    }
+
+    &-description {
+      flex: 1;
+      text-align: right;
+      .ellipsis();
+      color: @card-header-description-font-color;
+    }
+  }
+
+  &-footer {
+    .setOnePxBySide(top);
+    padding: @card-padding-vertical/2 @card-padding-left @card-padding-vertical/2 0 ;
+    display: flex;
+    align-items: center;
+    font-size: @card-footer-font-size;
+    color: @card-footer-font-color;
+    &-content {
+      flex: 1;
+      text-align: left;
+      .ellipsis();
+    }
+
+    &-description {
+      flex: 1;
+      text-align: right;
+      .ellipsis();
+    }
+  }
+
+  &-body {
+    min-height: @card-body-min-height;
+    padding: @card-padding-vertical @card-padding-left @card-padding-vertical 0;
+  }
+
+}
+

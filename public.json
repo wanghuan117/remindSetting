@@ -1,0 +1,1098 @@
+var isRemote = false; //是否forward到远程服务器 , false使用mock数据,true则forward到后台服务器
+
+var local = {
+    //周毅
+  'POST /RMCSInit':function (req, res) {
+      const data = {
+          "reply": {
+              "returnCode": {"domain": null, "type": "S", "code": "AAAAAA"}
+          }
+      };
+      res.json(data);
+  },
+  'POST /queryInitList': function (req, res) {
+      const data = {
+             "resultInfo":[
+                      {
+                          "company":"北京优米网络1",
+                          "person":"赵***",
+                          "capital":"10000万美元",
+                          "establish":"成立6年",
+                          "status":"1****",
+                          "attributes":{
+                              key:"00001",
+                              customerStatus:"潜在客户1",
+                              legalPerson:"赵***",
+                              capital:"50,000,000",
+                              date:"2014-03-16",
+                              updateDate:"2016-10-10",
+                              code:"603501"
+                          }
+                      },
+                      {
+                          "company":"北京优米网络2",
+                          "person":"田***",
+                          "capital":"10000万美元",
+                          "establish":"成立6年",
+                          "status":"2****",
+                          "attributes":{
+                              key:"00002",
+                              customerStatus:"潜在客户2",
+                              legalPerson:"田***",
+                              capital:"50,000,000",
+                              date:"2014-03-16",
+                              updateDate:"2016-10-10",
+                              code:"600292"
+                          }
+                      }
+             ]
+      }
+      /* window.setTimeout(res.json(data),5000);*/
+      res.json(data);
+  },
+  'POST /specialColumn': function (req, res) {
+      const data = {
+            classify:{
+                // 0.政策与行业
+                policyAndIndustry:[
+                    {
+                        "key":"8001",
+                        "value":"政策指南",
+                        "icon":"zhengcezhinan",
+                        "router":"theLoanPolicy"
+                    },
+                    {
+                        "key":"8002",
+                        "value":"你问我答",
+                        "icon":"niwenwoda",
+                        "router":"latestContent"
+                    },
+                    {
+                        "key":"8003",
+                        "value":"行业分析",
+                        "icon":"hangyefenxi",
+                        "router":"industryAnalyst"
+                    }
+                ],
+                // 1.基本情况
+                information:[
+                    {
+                        "key":"1000",
+                        "value":"基本信息",
+                        "icon":"jibenxinxi",
+                        "router":"basicInformation"
+                    },
+                    {
+                        "key":"1001",
+                        "value":"关联分析",
+                        "icon":"guanlianfenxi",
+                        "router":"correlation"
+                    },
+                    {
+                        "key":"1002",
+                        "value":"舆情分析",
+                        "icon":"yuqingfenxi",
+                        "router":"sentiment"
+                    },
+                    {
+                        "key":"1003",
+                        "value":"司法诉讼",
+                        "icon":"sifasusong",
+                        "router":"judicial"
+                    }
+                ],
+                 // 2.合作历史
+                history:[
+                    {
+                        "key":"4002",
+                        "value":"历史授信",
+                        "icon":"lishishouxin",
+                        "router":"creditHistory"
+                    },
+                    {
+                        "key":"4002",
+                        "value":"综合收益",
+                        "icon":"zongheshouyi",
+                        "router":"comprehensiveIncome"
+                    },
+                    {
+                        "key":"4002",
+                        "value":"售后信息",
+                        "icon":"daihouxinxi",
+                        "router":"afterInformation"
+                    },
+                    {
+                        "key":"4002",
+                        "value":"授信对标分析",
+                        "icon":"duibiaofenxi",
+                        "router":"creditForTheAnalysis"
+                    }
+                ],
+                // 3.企业融资
+                financing:[
+                    {
+                        "key":"2002",
+                        "value":"授信总量变化",
+                        "icon":"shouxinzongliang",
+                        "router":"creditTotal"
+                    },
+                    {
+                        "key":"2001",
+                        "value":"授信到期日集中度",
+                        "icon":"shouxindaoqi",
+                        "router":"credit"
+                    },
+                    {
+                        "key":"2005",
+                        "value":"授信品种结构",
+                        "icon":"pinzhongjiegou",
+                        "router":"creditConstruction"
+                    },
+                    {
+                        "key":"2003",
+                        "value":"异常授信",
+                        "icon":"yichangshouxin",
+                        "router":"abnormal"
+                    },
+                    {
+                        "key":"2004",
+                        "value":"授信担保",
+                        "icon":"lishishouxin",
+                        "router":"assurance"
+                    },
+                     {
+                        "key":"2004",
+                        "value":"对外担保",
+                        "icon":"duiwaidanbao1",
+                        "router":"assurance"
+                    },
+                ],
+                // 4.企业经营
+                manage:[
+                    {
+                        "key":"3001",
+                        "value":"交易流水",
+                        "icon":"jiaoyiliushui",
+                        "router":"topUpWater"
+                    },
+                    {
+                        "key":"3002",
+                        "value":"经营状况对比分析",
+                        "icon":"duibifenxi",
+                        "router":"operationComparison"
+                    },
+                    {
+                        "key":"3003",
+                        "value":"上下游渠道分析",
+                        "icon":"qudaofenxi",
+                        "router":"channelAnalysis"
+                    }
+                ],
+                // 7.企业财务
+                enterpriseFinance:[
+                    {
+                        "key":"7006",
+                        "value":"非财务交叉数据交叉验证",
+                        "icon":"caiwu",
+                        "router":"forkCrossValidationData"
+                    },
+                    {
+                        "key":"7002",
+                        "value":"内部科目交叉验证",
+                        "icon":"caiwu-",
+                        "router":"subjectsCrossValidation"
+                    },
+                    {
+                        "key":"7005",
+                        "value":"财务指标分析",
+                        "icon":"fenxi-1",
+                        "router":"financialIndexAnalysis"
+                    },
+                    {
+                        "key":"7001",
+                        "value":"同行业对标分析",
+                        "icon":"jibenxinxi",
+                        "router":"analysisOfTheIndustry"
+                    },
+                    {
+                        "key":"7004",
+                        "value":"杜邦分析",
+                        "icon":"zhongduanganzhifenxi",
+                        "router":"duPontAnalysis"
+                    },
+                    {
+                        "key":"7003",
+                        "value":"新增流贷额度测算",
+                        "icon":"caiwu-1",
+                        "router":"creditLimitIsCalculated"
+                    },
+                ],
+                 // 6.风险缓解
+                riskMitigation:[
+                    {
+                        "key":"6001",
+                        "value":"房产评估",
+                        "icon":"fangchanpinggu",
+                        "router":"valuation"
+                    },
+                    {
+                        "key":"6002",
+                        "value":"股票概要",
+                        "icon":"gupiaogaiyao",
+                        "router":"stockProfile"
+                    },
+                    {
+                        "key":"6003",
+                        "value":"土地增值税估算",
+                        "icon":"shui",
+                        "router":"landValueEstimation"
+                    }
+                ],
+                // 5.项目分析
+                projectAnalysis:[
+                    {
+                        "key":"5001",
+                        "value":"敏感性分析",
+                        "icon":"min1",
+                        "router":"sensitivityAnalysis"
+                    },
+                    {
+                        "key":"5002",
+                        "value":"项目现金估算",
+                        "icon":"xianjingusuan",
+                        "router":"estimateCash"
+                    },
+                    {
+                        "key":"5003",
+                        "value":"项目盈亏平衡分析",
+                        "icon":"yingkuipinghengfenxi",
+                        "router":"breakEven"
+                    }
+                ],
+                //其它
+                other:[
+                  {
+                        "key":"9001",
+                        "value":"一键查询",
+                        "icon":"fangdajing1",
+                        "router":"oneClickQuery"
+                    }
+                ]
+
+          }
+      };
+      /* window.setTimeout(res.json(data),5000);*/
+      res.json(data);
+  },
+  'POST /stockSearch': function (req, res) {
+        const data =  [
+              {
+                  "company":"珠海光电子科技有限公司1",
+                  "person":"王亚茹1",
+                  "status":"1*****",
+                  "code":"603501"
+              },
+              {
+                  "company":"珠海光电子科技有限公司2",
+                  "person":"王亚茹2",
+                  "status":"2*****",
+                  "code":"603505"
+              },
+              {
+                  "company":"珠海光电子科技有限公司3",
+                  "person":"王亚茹3",
+                  "status":"3*****",
+                  "code":"600292"
+              },
+              {
+                  "company":"珠海光电子科技有限公司1",
+                  "person":"王亚茹1",
+                  "status":"1*****",
+                  "code":"603501"
+              },
+              {
+                  "company":"珠海光电子科技有限公司2",
+                  "person":"王亚茹2",
+                  "status":"2*****",
+                  "code":"603505"
+              },
+              {
+                  "company":"珠海光电子科技有限公司3",
+                  "person":"王亚茹3",
+                  "status":"3*****",
+                  "code":"600292"
+              }
+          ];
+        /* window.setTimeout(res.json(data),5000);*/
+        res.json(data);
+    },
+  'POST /getPolicySystemInformation': function (req, res) {
+        const data = {
+            "resultInfo":{
+                "page_number":1,
+                "pages_per_line":10,
+                "record_number":20,
+                "policy_institution_listing":[
+                    {
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    },{
+                        "policy_institution_number":"0001",
+                        "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                        "publish_org":"总行",
+                        "publish_date":"(民银发[2013]306)",
+                        "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    }
+                ]
+            }
+        }
+        /* window.setTimeout(res.json(data),5000);*/
+        res.json(data);
+    },
+  'POST /policyInstitutionParticular': function (req, res) {
+        const data = {
+            "resultInfo":{
+                "page_number":1,
+                "pages_per_line":1,
+                "record_number":1,
+                "policy_institution_particular":{
+                    "policy_institution_number":"0001",
+                    "policy_institution_name":"JCO1 -《中国民生银行担保管理办法》",
+                    "publish_org":"总行",
+                    "publish_date":"(民银发[2013]306)",
+                    "similar_content":"1)判断用户权限，直线式该用户权限有的内容直线式该用户权限有的内容",
+                    "similar_count":4,
+                    "policy_content":"1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线1)判断用户权限，直线式该用户权限有的内容直线"
+                }
+
+            }
+        };
+        /* window.setTimeout(res.json(data),5000);*/
+        res.json(data);
+    },
+    // 授信政策
+    'POST /getcreditExtensionPolicyMessage': function (req, res) {
+        const data = {
+            "resultInfo":[
+                {
+					"key": "0",
+					"name": "总体导向",
+					"text":"总体导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍",
+					"text1":"总体导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍"
+				},{
+					"key": "1",
+					"name": "行业特征",
+					"text":"行业特征-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍",
+					"text1":"行业特征-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍"
+				},{
+					"key": "2",
+					"name": "产品导向",
+					"text":"产品导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍",
+					"text1":"产品导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍"
+				},{
+					"key": "3",
+					"name": "尽调要求",
+					"text":"尽调要求-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍",
+					"text1":"尽调要求-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍"
+				},{
+					"key": "4",
+					"name": "产品导向",
+					"text":"产品导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍",
+					"text1":"产品导向-美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍在协商中美两艘航母或联演 朝鲜该怎么办?,美两艘航母或联演 韩国海军兵力是否参演仍"
+				}
+            ]
+        }
+        /* window.setTimeout(res.json(data),5000);*/
+        res.json(data);
+    },
+    //获得楼盘信息
+     'POST /constructionList': function (req, res) {
+        const data = {
+            "resultInfo":[
+              {"constructionId":"0001","constructionName":"北京XXXXXX楼盘1","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0002","constructionName":"北京XXXXXX楼盘2","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0003","constructionName":"北京XXXXXX楼盘3","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0004","constructionName":"北京XXXXXX楼盘4","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0005","constructionName":"北京XXXXXX楼盘5","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0006","constructionName":"北京XXXXXX楼盘6","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0007","constructionName":"北京XXXXXX楼盘7","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0008","constructionName":"北京XXXXXX楼盘8","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0009","constructionName":"北京XXXXXX楼盘9","saleName":"北京XXXXXX楼盘别名"},
+              {"constructionId":"0010","constructionName":"北京XXXXXX楼盘10","saleName":"北京XXXXXX楼盘别名"},
+            ]
+        }
+        /* window.setTimeout(res.json(data),5000);*/
+        res.json(data);
+    },
+  //夏芝伟
+  'POST /judicial': function (req, res) {
+    const data={
+      "susong_result": {
+        "total_size": "10",
+        "page_no": "1",
+        "page_size": "10",
+        "susong_result_list": [
+          {
+            "cust_name": "abc",
+            "cert_no": "abc",
+            "court": "abc",
+            "surl": "abc",
+            "dt_time": "abc",
+            "pt_time": "abc",
+            "remark": "abc",
+            "case_type": "abc",
+            "case_no": "abc",
+            "liti_money": "abc",
+            "content": "abc",
+            "liti_pro": "abc",
+            "address": "abc",
+            "liti_type": "abc",
+            "liti_stage": "abc",
+            "match_keywords": "abc",
+            "sensitive_mark": "abc"
+          }
+        ]
+      },
+      "zhixing_result": {
+        "total_size": "12",
+        "page_no": "1",
+        "page_size": "10",
+        "zhixing_result_list": [
+          {
+            "cust_name": "1111",
+            "cert_no": "123",
+            "court": "北京市人民法院",
+            "surl": "http://www.cmbc.com.cn",
+            "dt_time": "2017-01-04",
+            "pt_time": "2017-01-04",
+            "remark": "有异议",
+            "case_no": "京法字2017第250号",
+            "liti_money": "20000万元",
+            "state": "*******",
+            "content": "无法支付约定款项",
+            "id_type": "37********",
+            "match_keywords": "abc",
+            "sensitive_mark": "敏感"
+          }
+        ]
+      },
+      "pochan_result": {
+        "total_size": "12",
+        "page_no": "1",
+        "page_size": "10",
+        "pochan_result_list": [
+          {
+            "cust_name": "abc",
+            "cert_no": "abc",
+            "court": "abc",
+            "surl": "abc",
+            "dt_time": "abc",
+            "pt_time": "abc",
+            "remark": "abc",
+            "type": "abc",
+            "id_type": "abc"
+          }
+        ]
+      },
+      "fumian_result": {
+        "total_size": "12",
+        "page_no": "1",
+        "page_size": "10",
+        "fumian_result_list": [
+          {
+            "cust_name": "abc",
+            "cert_no": "abc",
+            "court": "abc",
+            "surl": "abc",
+            "dt_time": "abc",
+            "pt_time": "abc",
+            "remark": "abc",
+            "case_type": "abc",
+            "case_no": "abc",
+            "liti_money": "abc",
+            "state": "abc",
+            "content": "abc",
+            "change_std": "abc",
+            "id_type": "abc"
+          }
+        ]
+      },
+      "qiankuan_result": {
+        "total_size": "12",
+        "page_no": "1",
+        "page_size": "10",
+        "qiankuan_result_list": [
+          {
+            "cust_name": "abc",
+            "cert_no": "abc",
+            "court": "abc",
+            "surl": "abc",
+            "dt_time": "abc",
+            "pt_time": "abc",
+            "remark": "abc",
+            "type": "abc",
+            "liti_money": "abc",
+            "state": "abc",
+            "content": "abc",
+            "bel_period": "abc",
+            "id_type": "abc"
+          }
+        ]
+      },
+      "feizheng_result": {
+        "total_size": "12",
+        "page_no": "1",
+        "page_size": "10",
+        "feizheng_result_list": [
+          {
+            "cust_name": "abc",
+            "cert_no": "abc",
+            "court": "abc",
+            "surl": "abc",
+            "dt_time": "abc",
+            "pt_time": "abc",
+            "remark": "abc",
+            "id_type": "abc"
+          }
+        ]
+      },
+      "list_money_change": [
+        {
+          "year": "2011",
+          "involved_money": "88",
+          "execute_money": "44",
+          "involved_number": "5"
+        },
+        {
+          "year": "2012",
+          "involved_money": "22",
+          "execute_money": "32",
+          "involved_number": "5"
+        },{
+          "year": "2013",
+          "involved_money": "33",
+          "execute_money": "67",
+          "involved_number": "5"
+        },{
+          "year": "2014",
+          "involved_money": "55",
+          "execute_money": "99",
+          "involved_number": "15"
+        },{
+          "year": "2015",
+          "involved_money": "66",
+          "execute_money": "125",
+          "involved_number": "5"
+        },{
+          "year": "2016",
+          "involved_money": "88",
+          "execute_money": "99",
+          "involved_number": "56"
+        }
+      ]
+    };
+    res.json(data)
+  },
+  'POST /getCooperationHistoryCreditMessage': function (req, res) {
+    const data={
+      "history_credit": {
+        "total_size":"19",
+        "history_credit_list": [
+          {
+            "credit_number":"00000000001",
+            "credit_final_date": "2011-12-10",
+            "credit_enable_date": "2017-04-09",
+            "business_type": "综合授信，如果名字很长，则截取",
+            "credit_deadline": "12个月",
+            "credit_limit": "1000万",
+            "credit_exposure_balance": "200万",
+            "credit_state": "已启用",
+            "credit_level": "A"
+          },
+          {
+            "credit_number":"00000000002",
+            "credit_final_date": "2011-12-10",
+            "credit_enable_date": "2017-04-11",
+            "business_type": "综合授信",
+            "credit_deadline": "19个月",
+            "credit_limit": "15000万",
+            "credit_exposure_balance": "123万",
+            "credit_state": "已启用",
+            "credit_level": "BBB"
+          }
+        ]
+      },
+      "history_credit_detail":{
+        "credit_applicant": "复星高科有限公司",
+        "credit_enable_date": "2017-04-09",
+        "credit_expire_date": "2018-04-10",
+        "credit_limit": "2000万",
+        "credit_exposure_balance": "1000万",
+        "credit_level": "A+",
+        "risk_limit": "2000万",
+        "credit_state": "欠息,逾期,垫款",
+        "business_type": "综合授信",
+        "final_opinion": "一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，一大堆话，",
+        "urgent_request": "紧急请示"
+      }
+    };
+    res.json(data)
+  },
+  'POST /hisCrdtRatQuery': function (req, res) {
+    const data={
+      "rodCustIntrstInfo": [
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "due_Amt": "100.00",
+          "due_Balance": "22200.00",
+          "due_date": "2018-02-09",
+          "due_Payoff_Date": "2018-01-10"
+        }
+      ],
+      "rodCustOvdueInfo": [
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "ovdue_adv_amt": "100.00",
+          "ovdue_adv_Bal": "22200.00",
+          "ovdue_adv_Dt": "2018-02-09",
+          "ovdue_adv_Payoff_Dt": "2018-01-10",
+          "ovdue_adv_Flag": "1"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "ovdue_adv_amt": "100.00",
+          "ovdue_adv_Bal": "22200.00",
+          "ovdue_adv_Dt": "2018-02-09",
+          "ovdue_adv_Payoff_Dt": "2018-01-10",
+          "ovdue_adv_Flag": "1"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "ovdue_adv_amt": "100.00",
+          "ovdue_adv_Bal": "22200.00",
+          "ovdue_adv_Dt": "2018-02-09",
+          "ovdue_adv_Payoff_Dt": "2018-01-10",
+          "ovdue_adv_Flag": "1"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "ovdue_adv_amt": "100.00",
+          "ovdue_adv_Bal": "22200.00",
+          "ovdue_adv_Dt": "2018-02-09",
+          "ovdue_adv_Payoff_Dt": "2018-01-10",
+          "ovdue_adv_Flag": "1"
+        },
+        {
+          "credit_Appl_No": "123456789",
+          "loan_No": "1234567",
+          "loan_Distr_Date": "2015-01-01",
+          "loan_Mature_Date": "2017-01-02",
+          "ovdue_adv_amt": "100.00",
+          "ovdue_adv_Bal": "22200.00",
+          "ovdue_adv_Dt": "2018-02-09",
+          "ovdue_adv_Payoff_Dt": "2018-01-10",
+          "ovdue_adv_Flag": "1"
+        }
+      ]
+    };
+    res.json(data)
+  },
+  //黄路
+  'POST /getNormalCorporateFinance': function (req, res) {
+    const data = {
+      "data":{
+        "exceptioninfo_list":[
+          {"index_name":"欠息","already_settled":"是","uncleared":""},
+          {"index_name":"不良","already_settled":"是","uncleared":""},
+          {"index_name":"剥离债务","already_settled":"","uncleared":""},
+          {"index_name":"垫款","already_settled":"是","uncleared":""}
+        ],
+        "total_variation_list":[
+          {"index_name":"授信行数量","current_period":"50","pipor_period":"10","change_rate":"0.8"},
+          {"index_name":"授信额度","current_period":"300","pipor_period":"286","change_rate":"0.25"},
+          {"index_name":"敞口余额","current_period":"300","pipor_period":"286","change_rate":"0.25"},
+          {"index_name":"短期授信敞口余额","current_period":"600","pipor_period":"800","change_rate":"-0.45"},
+          {"index_name":"销售收入","current_period":"50","pipor_period":"35","change_rate":"0.7"},
+          {"index_name":"销售比","current_period":"0.8","pipor_period":"0.9","change_rate":"1.1"}
+        ],
+        "credit_structure_list":{
+          "credit_concentration_list":[
+            {credit_type:"01",terminate_month:"2017-1",business_number:"1"},
+            {credit_type:"02",terminate_month:"2017-1",business_number:"4"},
+            {credit_type:"01",terminate_month:"2017-2",business_number:"3"},
+            {credit_type:"02",terminate_month:"2017-3",business_number:"1"},
+            {credit_type:"01",terminate_month:"2017-4",business_number:"7"},
+            {credit_type:"02",terminate_month:"2017-4",business_number:"1"},
+            {credit_type:"01",terminate_month:"2017-5",business_number:"3"},
+            {credit_type:"02",terminate_month:"2017-5",business_number:"4"},
+            {credit_type:"02",terminate_month:"2017-6",business_number:"2"},
+            {credit_type:"01",terminate_month:"2017-7",business_number:"12"},
+            {credit_type:"01",terminate_month:"2017-8",business_number:"3"},
+            {credit_type:"02",terminate_month:"2017-8",business_number:"7"},
+            {credit_type:"01",terminate_month:"2017-9",business_number:"11"},
+            {credit_type:"02",terminate_month:"2017-9",business_number:"2"},
+            {credit_type:"01",terminate_month:"2017-10",business_number:"12"},
+            {credit_type:"01",terminate_month:"2017-11",business_number:"3"},
+            {credit_type:"02",terminate_month:"2017-12",business_number:"6"}
+          ],
+          "credit_limit_list":[
+            {"index_name":"贷款","current_period":"50","proportion":"10","regulation":"0.8","pipor_period":"10","new_flag":"是"},
+            {"index_name":"贸易融资","current_period":"300","proportion":"286","regulation":"0.25","pipor_period":"286","new_flag":"是"},
+            {"index_name":"银行承兑汇票","current_period":"300","proportion":"286","regulation":"0.25","pipor_period":"286","new_flag":"是"},
+            {"index_name":"信用证","current_period":"600","proportion":"800","regulation":"-0.45","pipor_period":"286","new_flag":"是"},
+            {"index_name":"保函","current_period":"50","proportion":"35","regulation":"0.7","pipor_period":"286","new_flag":"是"},
+            {"index_name":"汇总","current_period":"0.8","proportion":"0.9","regulation":"1.1","pipor_period":"286","new_flag":"是"}
+          ]
+        },
+        "credit_guarantee_list":[
+          {
+            "guarrantee_enterprise":"担保人1",
+            "mortgage_amount":"100",
+            "pledge_amount":"23",
+            "guarantee_amount":"50",
+            "guarrantee_total":"400"
+          },
+          {
+            "guarrantee_enterprise":"担保人2",
+            "mortgage_amount":"100",
+            "pledge_amount":"23",
+            "guarantee_amount":"50",
+            "guarrantee_total":"400"
+          },
+          {
+            "guarrantee_enterprise":"担保人3",
+            "mortgage_amount":"100",
+            "pledge_amount":"23",
+            "guarantee_amount":"50",
+            "guarrantee_total":"400"
+          }
+        ],
+        "external_guarantee_list":[
+          {"guaranteed_company":"珠海**有限公司",
+            "mortgage_amount":"300",
+            "pledge_amount":"6000",
+            "guarantee_amount":"1000",
+            "guarrantee_total":"100000",
+            "fiveclass_code": "正常"},
+          {"guaranteed_company":"珠海**有限公司",
+            "mortgage_amount":"300",
+            "pledge_amount":"6000",
+            "guarantee_amount":"1000",
+            "guarrantee_total":"100000",
+            "fiveclass_code": "正常"},
+          {"guaranteed_company":"珠海**有限公司",
+            "mortgage_amount":"300",
+            "pledge_amount":"6000",
+            "guarantee_amount":"1000",
+            "guarrantee_total":"100000",
+            "fiveclass_code": "可疑"}
+        ]
+      }
+    };
+    /* window.setTimeout(res.json(data),5000);*/
+    res.json(data);
+  },
+  'POST /getAbnormalCorporateFinance': function (req, res) {
+    const data = {
+      "data":{
+        "debt_info": {
+          "total_size": "10",
+          "page_no": "1",
+          "page_size": "20",
+          "debt_list": [
+            {
+              "debt_type": "表内",
+              "currency": "人民币",
+              "balance_amount": "200",
+              "debt_loan_list": [
+                {
+                  "change_date": "2017-11-11",
+                  "balance_amount": "10",
+                  "org_name": "上海分行"
+                }
+              ]
+            },
+            {
+              "debt_type": "表外",
+              "currency": "人民币",
+              "balance_amount": "10220",
+              "debt_loan_list": [
+                {
+                  "change_date": "2016-12-01",
+                  "balance_amount": "11110",
+                  "org_name": "北京分行"
+                }
+              ]
+            }
+          ]
+        },
+        "bad_info": {
+          "total_size": "10",
+          "page_no": "1",
+          "page_size": "20",
+          "bad_list": [
+            {
+              "bad_type": "贷款余额",
+              "amount": "50",
+              "amount_USD": "10",
+              "amount_RMB":"200",
+              "bad_loan_list": [
+                {
+                  "loan_no": "贷款余额",
+                  "loan_type": "50",
+                  "takeout_date": "16-2",
+                  "terminate_date":"16-4",
+                  "duebill_bal":"31"
+                }
+              ]
+            },
+            {
+              "bad_type": "类贷款余额",
+              "amount": "300",
+              "amount_USD": "286",
+              "amount_RMB":"200",
+              "bad_loan_list": [
+                {
+                  "loan_no": "贷款余额",
+                  "loan_type": "50",
+                  "takeout_date": "16-3",
+                  "terminate_date":"16-4",
+                  "duebill_bal":"3"
+                },
+                {
+                  "loan_no": "贷款余额",
+                  "loan_type": "50",
+                  "takeout_date": "16-2",
+                  "terminate_date":"16-4",
+                  "duebill_bal":"5"
+                }
+              ]
+            }
+          ]
+        },
+        "paid_back_info": {
+          "total_size": "10",
+          "page_no": "1",
+          "page_size": "20",
+          "paid_back_list": [
+            {
+              "source_busi_type": "融资租赁",
+              "finance_name": "aaa公司",
+              "currency": "人民币",
+              "paidback_date":"2017-3",
+              "finance_code": "1232132131",
+              "paidback_sum": "50",
+              "paidback_bal": "10"
+            },
+            {
+              "source_busi_type": "融资租赁",
+              "finance_name": "aaa公司",
+              "currency": "人民币",
+              "paidback_date":"2017-3",
+              "finance_code": "1232132131",
+              "paidback_sum": "50",
+              "paidback_bal": "10"
+            }
+          ]
+        }
+      }
+    };
+    /* window.setTimeout(res.json(data),5000);*/
+    res.json(data);
+  }
+
+  //杨振银
+
+};
+
+var localReq = '*public.json'; //页面请求
+var forward = 'http://195.216.160.148/CMBC_CUBE_Server'; //转发服务器路径
+
+
+//个性化配置
+var remoteExt = {};
+
+var remote = function () {
+  var result = {};
+  result[localReq] = forward;
+  return Object.assign({}, result, remoteExt);
+};
+
+
+module.exports = isRemote ? remote() : local;
